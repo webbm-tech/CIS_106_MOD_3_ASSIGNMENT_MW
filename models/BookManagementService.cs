@@ -1,6 +1,5 @@
 using System.Collections;
-
-namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.BookManagementService;
+using CIS_106_MOD_3_ASSIGNMENT_MW.models;
 
 /// <summary>
 /// Book Management class hadles actions against the book library 
@@ -64,7 +63,7 @@ public class BookManagementService
     private void AddBook()
     {
         Console.WriteLine ($"Please enter the title of the book");
-        bookTitle = Console.ReadLine();
+        string bookTitle = Console.ReadLine();
         Console.WriteLine ($"Please enter the book's author");
         bookAuthor = Console.ReadLine();
         Console.WriteLine ($"Please enter the book's genre");
@@ -80,7 +79,7 @@ public class BookManagementService
     /// </summary>
     /// <param name="book">Book that is being displayed</param>
     private void DisplayBook(Book book)
-    {       Console.WriteLine ($"ID: {book.bookID}");
+    {       Console.WriteLine ($"ID: {book.BookID}");
             Console.WriteLine ($"Title: {book.bookTitle}");
             Console.WriteLine ($"Author: {book.bookAuthor}");
             Console.WriteLine ($"Genre: {book.bookGenre}");
@@ -116,4 +115,4 @@ public class BookManagementService
         BookCollection.Remove(toRemove);
 
     }
-    }
+ }

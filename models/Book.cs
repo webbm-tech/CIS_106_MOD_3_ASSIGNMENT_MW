@@ -1,8 +1,8 @@
-namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.Book;
 /// <summary>
 /// Book class for Book Manager Service
 /// </summary>
 /// <author> Megan Webb </author>
+namespace CIS_106_MOD_3_ASSIGNMENT_MW.models;
 public class Book
 {
     public string BookTitle {get; set;}
