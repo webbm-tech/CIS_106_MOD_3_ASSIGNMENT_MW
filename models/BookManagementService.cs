@@ -1,8 +1,19 @@
+using System.Collections;
+using CIS_106_MOD_3_ASSIGNMENT_MW.models.book;
+
 namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.BookManagementService;
 
+/// <summary>
+/// Book Management class hadles actions against the book library 
+/// </summary>
+/// <author>Megan Webb </author>
 public class BookMangementService
 {
-
+    Dictionary<int,Book>()
+    
+/// <summary>
+/// Method that greets the user and prompts for a response 
+/// </summary>
     public void OnStart()
     {
        Console.WriteLine($"Welcome to the Book Management System. You currently have 2 books in your system.");
@@ -14,5 +25,74 @@ public class BookMangementService
 
         string userResponse = Console.ReadLine();
         Console.WriteLine($"{userResponse}");
+
+        switch (userResponse)
+        {
+        case "1":
+        DisplayAllBOoks();
+        break;
+
+        case "2":
+        DisplayBookByID();
+        break;
+
+        case "3":
+        AddBook();
+        break;
+
+        case "4":
+        break;
+
+        case "5":
+        Console.Write($"Exiting");
+        Environment.Exit(0);
+        break;
+
+        }
+      }
+
+    public void AddBook()
+    {
+        Console.WriteLine ($"Please enter the title of the book");
+        bookTitle = Console.ReadLine();
+        Console.WriteLine ($"Please enter the book's author");
+        bookAuthor = Console.ReadLine();
+        Console.WriteLine ($"Please enter the book's genre");
+        bookGenre = Console.ReadLine();
+        Console.WriteLine ($"Please enter a unique book ID");
+        bookID = Console.ReadLine();
+
+        Book book = new Book (bookID, bookTitle, bookAuthor, bookGenre);
+        BookCollection.Add(bookID, book);
     }    
+    /// <summary>
+    /// Method for book output format
+    /// </summary>
+    /// <param name="book">Book that is being displayed</param>
+    public void DisplayBook(Book book)
+    {       Console.WriteLine ($"ID: {book.bookID}");
+            Console.WriteLine ($"Title: {book.bookTitle}");
+            Console.WriteLine ($"Author: {book.bookAuthor}");
+            Console.WriteLine ($"Genre: {book.bookGenre}");
+    }
+    /// <summary>
+    /// Asks user for book ID and displays requested book
+    /// </summary>
+    public void DisplayBookByID()
+    {
+        Console.WriteLine ($"What is the ID of the book you would like to look up?");
+        lookUpID = Console.ReadLine();
+
+    }
+    /// <summary>
+    /// Displays all books available in collection 
+    /// </summary>
+    public void DisplayAllBOoks()
+    {
+        Console.WriteLine ($"Books Avilalbe");
+        foreach (Book book in BookCollection.Values)
+        {
+            DisplayBook(book);
+        }
+    }
 }

@@ -5,10 +5,10 @@ namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.book;
 /// <author> Megan Webb </author>
 public class Book
 {
-    string BookTitle {get; set;}
-    string BookAuthor {get; set;}
-    string BookGenre {get; set;}
-    string BookID {get; set;}
+    public string BookTitle {get; set;}
+    public string BookAuthor {get; set;}
+    public string BookGenre {get; set;}
+    public string BookID {get; set;}
 /// <summary>
 /// Complete constructor for Book Class
 /// </summary>

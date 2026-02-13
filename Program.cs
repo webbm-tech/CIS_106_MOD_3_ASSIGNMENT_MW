@@ -10,4 +10,4 @@ List <string> loadingScreenAction = new List<string>
     new LoadingScreenActions {ActionName = "Exit", ActionID = 5}
 };
 
-BookManagementServices bookManagementServices = new BookManagementService;
+BookManagementServices bookManagementServices = new BookManagementService();
