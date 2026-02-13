@@ -1,7 +1,8 @@
-﻿using CIS_106_MOD_3_ASSIGNMENT_MW.models.loadingScreen;
+﻿using CIS_106_MOD_3_ASSIGNMENT_MW.models.LoadingScreenActions;
+using CIS_106_MOD_3_ASSIGNMENT_MW.models.Book;
 using CIS_106_MOD_3_ASSIGNMENT_MW.models.BookManagementService;
 
-List <string> loadingScreenAction = new List<string>
+List <LoadingScreenActions> loadingScreenAction = new List<LoadingScreenActions>
 {
     new LoadingScreenActions {ActionName = "Display Books", ActionID = 1 },
     new LoadingScreenActions {ActionName = "Display Display Book by Book ID", ActionID = 2},

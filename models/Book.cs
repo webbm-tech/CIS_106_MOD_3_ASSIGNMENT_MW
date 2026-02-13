@@ -1,4 +1,4 @@
-namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.book;
+namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.Book;
 /// <summary>
 /// Book class for Book Manager Service
 /// </summary>

@@ -1,5 +1,4 @@
 using System.Collections;
-using CIS_106_MOD_3_ASSIGNMENT_MW.models.book;
 
 namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.BookManagementService;
 
@@ -7,16 +6,24 @@ namespace CIS_106_MOD_3_ASSIGNMENT_MW.models.BookManagementService;
 /// Book Management class hadles actions against the book library 
 /// </summary>
 /// <author>Megan Webb </author>
-public class BookMangementService
+public class BookManagementService
 {
-    Dictionary<int,Book>()
+    Dictionary<string, Book> BookCollection = new Dictionary<string, Book>
+    {
+        {"1", new Book ("1", "Harry Potter", "J.K. Rowling", "Children's Fiction")},
+        {"2", new Book ("2", "The Hobbit", "J.R.R. Tolkein", "Fantasy Fiction")}
+    };
     
 /// <summary>
 /// Method that greets the user and prompts for a response 
 /// </summary>
     public void OnStart()
     {
+    
        Console.WriteLine($"Welcome to the Book Management System. You currently have 2 books in your system.");
+       
+       while (true)
+       {
        Console.WriteLine($"What would you like to do?");
        foreach (LoadingScreenActions loadingScreenAction in LoadingScreenActions)
         {
@@ -24,8 +31,7 @@ public class BookMangementService
         }
 
         string userResponse = Console.ReadLine();
-        Console.WriteLine($"{userResponse}");
-
+         
         switch (userResponse)
         {
         case "1":
@@ -41,17 +47,21 @@ public class BookMangementService
         break;
 
         case "4":
+        RemoveBook();
         break;
 
         case "5":
         Console.Write($"Exiting");
         Environment.Exit(0);
         break;
-
         }
-      }
+       }
+    }
+       
+       
+     
 
-    public void AddBook()
+    private void AddBook()
     {
         Console.WriteLine ($"Please enter the title of the book");
         bookTitle = Console.ReadLine();
@@ -69,7 +79,7 @@ public class BookMangementService
     /// Method for book output format
     /// </summary>
     /// <param name="book">Book that is being displayed</param>
-    public void DisplayBook(Book book)
+    private void DisplayBook(Book book)
     {       Console.WriteLine ($"ID: {book.bookID}");
             Console.WriteLine ($"Title: {book.bookTitle}");
             Console.WriteLine ($"Author: {book.bookAuthor}");
@@ -78,7 +88,7 @@ public class BookMangementService
     /// <summary>
     /// Asks user for book ID and displays requested book
     /// </summary>
-    public void DisplayBookByID()
+    private void DisplayBookByID()
     {
         Console.WriteLine ($"What is the ID of the book you would like to look up?");
         lookUpID = Console.ReadLine();
@@ -87,7 +97,7 @@ public class BookMangementService
     /// <summary>
     /// Displays all books available in collection 
     /// </summary>
-    public void DisplayAllBOoks()
+    private void DisplayAllBOoks()
     {
         Console.WriteLine ($"Books Avilalbe");
         foreach (Book book in BookCollection.Values)
@@ -95,4 +105,15 @@ public class BookMangementService
             DisplayBook(book);
         }
     }
-}
+/// <summary>
+/// Remove book from teh collection of books
+/// </summary>
+    private void RemoveBook()
+    {
+        Console.WriteLine ($"Please enter the ID of the book you want to remove");
+        string toRemove = Console.ReadLine();
+
+        BookCollection.Remove(toRemove);
+
+    }
+    }
