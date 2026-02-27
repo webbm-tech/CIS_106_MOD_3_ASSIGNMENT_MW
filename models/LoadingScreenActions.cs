@@ -1,7 +1,9 @@
-public class LoadingScreenActions
+public enum LoadingScreenActions
 {
-    public string ActionName {get; set;}
-    public int ActionID {get; set;}
-
+    DiplayBooks = 1,
+    DisplayBookByID = 2,
+    AddNewBook = 3 ,
+    RemoveBookByID = 4,
+    Exit = 5
 
 };
