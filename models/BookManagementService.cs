@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using CIS_106_MOD_3_ASSIGNMENT_MW.models;
 
 /// <summary>
-/// Book Management class hadles actions against the book library 
+/// Book Management class handles actions against the book library 
 /// </summary>
 /// <author>Megan Webb </author>
 public class BookManagementService
@@ -66,7 +66,9 @@ public class BookManagementService
        
        
      
-
+/// <summary>
+/// This method craetes adds a book to the dictionary
+/// </summary>
     private void AddBook()
     {
         Console.WriteLine ($"Please enter the title of the book");
@@ -97,15 +99,18 @@ public class BookManagementService
     /// </summary>
     private void DisplayBookByID()
     {
-        Console.WriteLine ($"What is the ID of the book you would like to look up?");
-        string lookUpID = Console.ReadLine() ?? string.Empty;
-        if (BookCollection.TryGetValue(lookUpID, out Book foundBook))
+        while (true)
         {
-            DisplayBook(foundBook);
-        }else
-        {
-            Console.WriteLine ($"That is not a valid book ID");
-        }
+            Console.WriteLine ($"What is the ID of the book you would like to look up?\n");
+            string lookUpID = Console.ReadLine() ?? string.Empty;
+            if (BookCollection.TryGetValue(lookUpID, out Book foundBook))
+            {
+                DisplayBook(foundBook);
+                break;
+                 
+            }
+        Console.WriteLine ($"That is not a valid book ID"); }
+      
     }
        
     
@@ -125,16 +130,17 @@ public class BookManagementService
 /// </summary>
     private void RemoveBook()
     {
-        Console.WriteLine ($"Please enter the ID of the book you want to remove");
-        string toRemove = Console.ReadLine() ?? string.Empty;
-        if (BookCollection.TryGetValue(toRemove, out Book removedBook))
-        {
-            BookCollection.Remove(removedBook.BookID);
-        }else
-        {
-            Console.WriteLine ($"That is not a valid book ID");
+
+        while (true)
+        {   Console.WriteLine ($"Please enter the ID of the book you want to remove\n");
+            string toRemove = Console.ReadLine() ?? string.Empty;
+            if (BookCollection.TryGetValue(toRemove, out Book removedBook))
+            {
+                BookCollection.Remove(removedBook.BookID);
+                break;
+            }
+        Console.WriteLine ($"That is not a valid book ID\n");
         }
-        
     }
- }
+}
  

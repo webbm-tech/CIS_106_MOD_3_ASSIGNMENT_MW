@@ -1,3 +1,7 @@
+/// <summary>
+/// Loading screen actions enum handles the options the user can select from  
+/// </summary>
+/// <author>Megan Webb </author>
 public enum LoadingScreenActions
 {
     DiplayBooks = 1,
